@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="D:/git/QingLibCpp/" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -31,8 +32,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="test/basic" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="test/basic/BasicTest.cpp" />
+		<Unit filename="test/basic/BasicTest.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Test.h"
+#include <string.h>
+#include "BasicTest.h"
 
 using namespace std;
 
@@ -8,12 +9,9 @@ int main()
     cout << "Hello world! " << endl;
     cout << "Test my!" << endl;
 
-    Test* t = new Test();
-    t->SetCounter(1000);
+    cout << strcmp("aaa", "aaab") << endl;
 
-    cout << t->GetCounter() <<endl;
-
-    cout << strcasecmp("aaa", "aaab") << endl;
+    BasicTest* bTest = new BasicTest();
 
     return 0;
 

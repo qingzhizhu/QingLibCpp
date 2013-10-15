@@ -14,3 +14,6 @@
 
 #mac os
 *.DS_Store
+
+#windows
+*.exe
