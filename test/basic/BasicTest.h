@@ -12,6 +12,7 @@ class BasicTest
 
         void testIO();
 
+        void testMem();
 
     protected:
     private:
