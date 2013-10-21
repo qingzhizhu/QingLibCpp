@@ -14,6 +14,12 @@ class BasicTest
 
         void testMem();
 
+
+        void testReg();
+
+        void testString();
+
+
     protected:
     private:
 };

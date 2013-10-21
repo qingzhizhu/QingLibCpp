@@ -34,6 +34,8 @@
 			<Add option="-fexceptions" />
 			<Add directory="test/basic" />
 		</Compiler>
+		<Unit filename="com/qing/utils/StringUtils.cpp" />
+		<Unit filename="com/qing/utils/StringUtils.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="test/basic/BasicTest.cpp" />
 		<Unit filename="test/basic/BasicTest.h" />

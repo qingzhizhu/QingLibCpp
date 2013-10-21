@@ -2,6 +2,8 @@
 1381805732 source:/Users/Kevin/git/QingLibCpp/main.cpp
 	<iostream>
 
+1381846109 
+
 1381805756 source:/Users/Kevin/git/QingLibCpp/Test.cpp
 	"Test.h"
 
@@ -11,6 +13,8 @@
 	<iostream>
 	<string.h>
 	"BasicTest.h"
+
+1381849001 .h"
 
 1381846109 d:\git\qinglibcpp\test.h
 
@@ -22,4 +26,28 @@
 	<iostream>
 
 1381849989 d:\git\qinglibcpp\test\basic\basictest.h
+
+1381975180 source:/Users/Kevin/git/QingLibCpp/main.cpp
+	<iostream>
+	<string.h>
+	"BasicTest.h"
+
+1382332787 /Users/Kevin/git/QingLibCpp/test/basic/BasicTest.h
+
+1382327068 source:/Users/Kevin/git/QingLibCpp/test/basic/BasicTest.cpp
+	"BasicTest.h"
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<regex.h>
+	<sys/time.h>
+	<sys/types.h>
+
+1382332679 source:/Users/Kevin/git/QingLibCpp/com/qing/utils/StringUtils.cpp
+	"StringUtils.h"
+
+1382332702 /Users/Kevin/git/QingLibCpp/com/qing/utils/StringUtils.h
+	<string>
+	<iostream>
 

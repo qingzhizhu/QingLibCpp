@@ -4,6 +4,15 @@
 #include <stdlib.h> //malloc,realloc,free 不报错了
 #include <string.h> //memset, strlen
 
+#include <regex.h>
+#include <sys/time.h>
+#include <sys/types.h>
+
+
+
+#include "StringUtils.h"
+
+
 using namespace std;
 
 BasicTest::BasicTest()
@@ -11,6 +20,10 @@ BasicTest::BasicTest()
     //ctor
     testIO();
     testMem();
+
+   // testReg();
+
+   testString();
 }
 
 BasicTest::~BasicTest()
@@ -19,6 +32,58 @@ BasicTest::~BasicTest()
 }
 
 
+
+void BasicTest::testString()
+{
+    cout << "--------------BasicTest::test String----------------" << endl;
+
+    string str = "aaaaaiiiwwiwa";
+    str = StringUtils::replace_all(str, "aa", "@");
+    cout << str << endl;
+
+    cout << "--------------BasicTest::test String end----------------" << endl;
+}
+
+
+void BasicTest::testReg()
+{
+    cout << "--------------BasicTest::testReg() 正则测试----------------" << endl;
+    char pattern[512]="finance\\.sina\\.cn|stock1\\.sina\\.cn|3g\\.sina\\.com\\.cn.*(channel=finance|_finance$|ch=stock|/stock/)|dp.sina.cn/.*ch=9&";
+
+    const int times = 1000000;
+
+    const size_t nmatch = 10;
+    regmatch_t pm[10];
+    int z;
+    regex_t reg;
+    char lbuf[256]="set",rbuf[256];
+    char buf[3][256] = {"finance.sina.cn/google.com/baidu.com.google.sina.cndddddddddddddddddddddda.sdfasdfeoasdfnahsfonadsdf",
+                    "3g.com.sina.cn.google.com.dddddddddddddddddddddddddddddddddddddddddddddddddddddbaidu.com.sina.egooooooooo",
+                    "http://3g.sina.com.cn/google.baiduchannel=financegogo.sjdfaposif;lasdjf.asdofjas;dfjaiel.sdfaosidfj"};
+    printf("input strings:\n");
+    timeval end,start;
+    gettimeofday(&start,NULL);
+    regcomp(&reg,pattern,REG_EXTENDED|REG_NOSUB);
+    for(int i = 0 ; i < times; ++i)
+    {
+        for(int j = 0 ; j < 3; ++j)
+        {
+            z = regexec(&reg,buf[j],nmatch,pm,REG_NOTBOL);
+/*          if(z==REG_NOMATCH)
+                printf("no match\n");
+            else
+                printf("ok\n");
+                */
+        }
+    }
+    gettimeofday(&end,NULL);
+    uint time = (end.tv_sec-start.tv_sec)*1000000 + end.tv_usec - start.tv_usec;
+    cout<<time/1000000<<" s and "<<time%1000000<<" us."<<endl;
+
+
+    cout << "--------------BasicTest::testReg() end----------------" << endl;
+}
+
 void BasicTest::testIO()
 {
     cout << "--------------BasicTest::testIO() 基础io----------------" << endl;
@@ -26,7 +91,9 @@ void BasicTest::testIO()
     cout << "NULL | " << NULL << endl;
 
     int *p;
-    *p = 120;
+    //*p = 120; //mac 下面 不对
+    int num = 120;
+    p = &num;
     cout << "Pointer int | " << p << endl;
     cout << "Pointer int address | " << &p << endl;
     cout << "Pointer int value | " << *p << endl;
@@ -65,6 +132,8 @@ void BasicTest::testIO()
     cout << "sums is " << sum << endl;
     */
 
+    //string str = "<b>aaaaa</b>";
+   // str.replace()
 }
 
 void BasicTest::testMem()
