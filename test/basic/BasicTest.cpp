@@ -4,13 +4,13 @@
 #include <stdlib.h> //malloc,realloc,free 不报错了
 #include <string.h> //memset, strlen
 
-#include <regex.h>
+//#include <regex.h>
 #include <sys/time.h>
 #include <sys/types.h>
 
 
 
-#include "StringUtils.h"
+//#include "StringUtils.h"
 
 
 using namespace std;
@@ -24,6 +24,8 @@ BasicTest::BasicTest()
    // testReg();
 
    testString();
+
+   testPointer();
 }
 
 BasicTest::~BasicTest()
@@ -36,18 +38,20 @@ BasicTest::~BasicTest()
 void BasicTest::testString()
 {
     cout << "--------------BasicTest::test String----------------" << endl;
-
+    cout << "String 要用 c_str(),不要用data()函数，因为data()不能保证最后一位是\0,导致一些长度等bug！" << endl;
+/*
     string str = "aaaaaiiiwwiwa";
     str = StringUtils::replace_all(str, "aa", "@");
     cout << str << endl;
-
+*/
     cout << "--------------BasicTest::test String end----------------" << endl;
 }
 
 
 void BasicTest::testReg()
 {
-    cout << "--------------BasicTest::testReg() 正则测试----------------" << endl;
+    cout << "--------------BasicTest::testReg() 正则测试 只在linux下能用----------------" << endl;
+    /*
     char pattern[512]="finance\\.sina\\.cn|stock1\\.sina\\.cn|3g\\.sina\\.com\\.cn.*(channel=finance|_finance$|ch=stock|/stock/)|dp.sina.cn/.*ch=9&";
 
     const int times = 1000000;
@@ -69,18 +73,18 @@ void BasicTest::testReg()
         for(int j = 0 ; j < 3; ++j)
         {
             z = regexec(&reg,buf[j],nmatch,pm,REG_NOTBOL);
-/*          if(z==REG_NOMATCH)
-                printf("no match\n");
-            else
-                printf("ok\n");
-                */
+//          if(z==REG_NOMATCH)
+//                printf("no match\n");
+//           else
+//                printf("ok\n");
+
         }
     }
     gettimeofday(&end,NULL);
     uint time = (end.tv_sec-start.tv_sec)*1000000 + end.tv_usec - start.tv_usec;
     cout<<time/1000000<<" s and "<<time%1000000<<" us."<<endl;
 
-
+*/
     cout << "--------------BasicTest::testReg() end----------------" << endl;
 }
 
@@ -172,6 +176,32 @@ void BasicTest::testMem()
     cout << "Buffer before memset: " << buffer << endl;
     memset(buffer,'*',strlen(buffer));
     cout <<"Buffer after memset: " << buffer << endl;
+
+}
+
+
+void BasicTest::testPointer()
+{
+    int * pNum = new int;
+    *pNum = 1000;
+
+    cout << "pNum   = " << pNum << endl;
+    cout << "&pNum  = " << &pNum << endl;
+    cout << "*pNum  = " << * pNum << endl;
+
+    cout << "因为使用new，所以必须delete，否则是内存泄漏！" << endl;
+    delete pNum;
+    pNum = 0;
+    delete pNum;
+    cout << "delte 不能2次，但delete用于空指针是安全的!" << endl;
+
+    pNum = new int(10);
+    cout << "*pNum  = " << * pNum << endl;
+    cout << "若没有delete这个指针，在重写分配新的内存，也会泄漏，并且上一个指针不能访问，就永远释放不掉" << endl;
+    pNum = new int(20);
+    delete pNum;
+    pNum = 0;
+
 
 }
 

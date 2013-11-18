@@ -9,15 +9,20 @@ class BasicTest
         BasicTest();
         virtual ~BasicTest();
 
-
+        /**IO 操作*/
         void testIO();
 
+        /**内存*/
         void testMem();
 
-
+        /**正则，只有在Linux下面能测试*/
         void testReg();
 
+        /**String的练习*/
         void testString();
+
+        /**指针的一些练习*/
+        void testPointer();
 
 
     protected:

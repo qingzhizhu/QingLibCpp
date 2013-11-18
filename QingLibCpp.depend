@@ -1,6 +1,9 @@
 # depslib dependency file v1.0
-1381805732 source:/Users/Kevin/git/QingLibCpp/main.cpp
+1381975180 source:/Users/Kevin/git/QingLibCpp/main.cpp
 	<iostream>
+	<iostream>
+	<string.h>
+	"BasicTest.h"
 
 1381846109 
 
@@ -9,7 +12,7 @@
 
 1381805757 /Users/Kevin/git/QingLibCpp/Test.h
 
-1381849001 source:d:\git\qinglibcpp\main.cpp
+1381937639 source:d:\git\qinglibcpp\main.cpp
 	<iostream>
 	<string.h>
 	"BasicTest.h"
@@ -25,12 +28,7 @@
 	"BasicTest.h"
 	<iostream>
 
-1381849989 d:\git\qinglibcpp\test\basic\basictest.h
-
-1381975180 source:/Users/Kevin/git/QingLibCpp/main.cpp
-	<iostream>
-	<string.h>
-	"BasicTest.h"
+1384785729 d:\git\qinglibcpp\test\basic\basictest.h
 
 1382332787 /Users/Kevin/git/QingLibCpp/test/basic/BasicTest.h
 
@@ -48,6 +46,13 @@
 	"StringUtils.h"
 
 1382332702 /Users/Kevin/git/QingLibCpp/com/qing/utils/StringUtils.h
+	<string>
+	<iostream>
+
+1382450172 source:d:\git\qinglibcpp\com\qing\utils\stringutils.cpp
+	"StringUtils.h"
+
+1382450172 d:\git\qinglibcpp\com\qing\utils\stringutils.h
 	<string>
 	<iostream>
 
